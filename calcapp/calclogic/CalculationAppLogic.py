@@ -18,8 +18,7 @@ class CalculationOperation:
         return self.operationsModel.operand1 - self.operationsModel.operand2
 
     def mul(self):
-        if self.operationsModel.operand2 < 0 and self.operationsModel.operand1 < 0:
-            raise NonNegativeNUmber
+
         return self.operationsModel.operand1 * self.operationsModel.operand2
 
     def div(self):

@@ -12,11 +12,11 @@ from calcapp.calclogic.CalculationAppLogic import CalculationOperation
 
 @api_view(['GET', 'POST', 'DELETE'])
 def operations_list(request):
-    if request.method == 'GET':
+    if request.method == 'GET':  # list of operation performed
         operation_dict = OperationsModel.objects.all()
         operation_model_serializer = OperationModelSerializer(operation_dict, many=True)
         return JsonResponse(operation_model_serializer.data, safe=False)
-    elif request.method == 'POST':
+    elif request.method == 'POST':  # operation
         operation_dict = JSONParser().parse(request)
         operation_model = OperationsModel.dict2obj(operation_dict)
         calc_app = CalculationOperation(operation_model)
@@ -27,7 +27,7 @@ def operations_list(request):
             operation_model_serializer.save()
             return JsonResponse(operation_model_serializer.data, status=status.HTTP_201_CREATED)
         return JsonResponse(operation_model_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    elif request.method == 'DELETE':
+    elif request.method == 'DELETE':  # Delete list of all the operation
         count = OperationsModel.objects.all().delete()
         return JsonResponse({'message': '{} Calculation were deleted successfully!'.format(count[0])},
                             status=status.HTTP_204_NO_CONTENT)
@@ -40,9 +40,10 @@ def operation_detail(request, pk):
     except OperationsModel.DoesNotExist:
         return JsonResponse({'message': 'The calculation entry does not exist'}, status=status.HTTP_404_NOT_FOUND)
 
-    if request.method == 'GET':
+    if request.method == 'GET':  # particular operation get
         operation_model_serializer = OperationModelSerializer(operation_model)
         return JsonResponse(operation_model_serializer.data)
-    elif request.method == 'DELETE':
+    elif request.method == 'DELETE':  # particular operation delete
         operation_model.delete()
-        return JsonResponse({'message':'calculation entry was deleted successfully!'},status=status.HTTP_204_NO_CONTENT)
+        return JsonResponse({'message': 'calculation entry was deleted successfully!'},
+                            status=status.HTTP_204_NO_CONTENT)
