@@ -1,1 +1,1 @@
-web: gunicorn calcapp.wsgi
+web: gunicorn djangoProject.wsgi
