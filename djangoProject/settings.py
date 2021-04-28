@@ -27,7 +27,9 @@ SECRET_KEY = '#(t@2lhre$_0n+_m*0%=l00k@ic5$@1eknv4==(jz8mx_k=nbo'
 DEBUG = False
 
 ALLOWED_HOSTS = ['https://serene-cliffs-16602.herokuapp.com/',
-                 'localhost ']
+                 'localhost '
+                 '127.0.0.1'
+                 ]
 
 
 # Application definition
