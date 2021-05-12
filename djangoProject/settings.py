@@ -26,8 +26,9 @@ SECRET_KEY = '#(t@2lhre$_0n+_m*0%=l00k@ic5$@1eknv4==(jz8mx_k=nbo'
 DEBUG = False
 
 ALLOWED_HOSTS = ['https://serene-cliffs-16602.herokuapp.com/',
-                 'localhost '
-                 '127.0.0.1'
+                 'localhost ',
+                 '127.0.0.1',
+                 'https://calculate-application-django.herokuapp.com'
                  ]
 
 # Application definition
@@ -54,7 +55,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_ALLOW_ALL = True
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:8081', 'https://calculate-application-django.herokuapp.com'
 )
