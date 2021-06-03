@@ -22,7 +22,7 @@ class CalculationOperation:
         return int(self.operationsModel.operand1) * int(self.operationsModel.operand2)
 
     def div(self):
-        if self.operationsModel.operand2 == 0:
+        if int(self.operationsModel.operand2) == 0:
             raise NumberNotBeAsZero
         return int(self.operationsModel.operand1) / int(self.operationsModel.operand2)
 
