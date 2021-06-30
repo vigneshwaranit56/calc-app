@@ -10,12 +10,12 @@ class CalculationOperation:
     def add(self):
         if int(self.operationsModel.operand2) < 0 and int(self.operationsModel.operand1) < 0:
             raise NonNegativeNUmber
-        return self.operationsModel.operand1 + self.operationsModel.operand2
+        return int(self.operationsModel.operand1) + int(self.operationsModel.operand2)
 
     def sub(self):
         if int(self.operationsModel.operand2) < 0 and int(self.operationsModel.operand1) < 0:
             raise NonNegativeNUmber
-        return self.operationsModel.operand1 - self.operationsModel.operand2
+        return int(self.operationsModel.operand1) - int(self.operationsModel.operand2)
 
     def mul(self):
 
