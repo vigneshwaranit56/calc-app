@@ -25,6 +25,10 @@ class CalculationOperation:
         if int(self.operationsModel.operand2) == 0:
             raise NumberNotBeAsZero
         return int(self.operationsModel.operand1) / int(self.operationsModel.operand2)
+    def mod(self):
+        if int(self.operationsModel.operand2) == 0:
+            raise NumberNotBeAsZero
+        return int(self.operationsModel.operand1) % int(self.operationModel.operand2)   
 
     def do_operation(self):
         if self.operationsModel.operation == 'add':
@@ -35,5 +39,7 @@ class CalculationOperation:
             return self.mul()
         elif self.operationsModel.operation == 'div':
             return self.div()
+        elif self.operationsModel.operation == 'mod':
+            return self.mod()
         else:
             raise OperationNotFound
